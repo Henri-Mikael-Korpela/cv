@@ -4,6 +4,8 @@ This is my CV focused on software development. It is implemented using JavaScrip
 
 [Here](http://henrijahanna.fi/henri/) is the CV online.
 
+Bring your own favicon!
+
 ## Deployment to FTP server
 
 In order to display CV online, I have used FTP connection to deploy files. The deployment requires `.env` file
