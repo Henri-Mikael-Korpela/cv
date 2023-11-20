@@ -69,6 +69,14 @@ const mobileStyle = `
         margin: 0;
     }
 
+    #banner-mobile-name h1 {
+        font-size: 21px;
+        margin-top:8px;
+    }
+    #banner-mobile-role {
+        font-size: 12px;
+    }
+
     #banner-mobile-photo {
         aspect-ratio: 1/1;
         background-image: url('${PHOTO_URL}');
