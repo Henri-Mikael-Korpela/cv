@@ -7,7 +7,7 @@ This is my CV focused on software development. It is implemented using JavaScrip
 ## Deployment to FTP server
 
 In order to display CV online, I have used FTP connection to deploy files. The deployment requires `.env` file
-with content as follows (example values):
+with the following content (values are example values):
 
 ```
 FTP_SERVER_HOST=ftp.example.com
