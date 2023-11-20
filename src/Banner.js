@@ -60,7 +60,7 @@ template.innerHTML = `
     </div>
 `;
 
-class Section extends HTMLElement {
+class Banner extends HTMLElement {
     constructor() {
         super();
 
@@ -111,4 +111,4 @@ class Section extends HTMLElement {
         });
     }
 }
-customElements.define("raq-banner", Section);
+customElements.define("raq-banner", Banner);
