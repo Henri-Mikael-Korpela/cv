@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>CV - Henri Korpela</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@200;500&display=swap" rel="stylesheet">
+
+    <style>
+        html,
+        body {
+            margin: 0;
+        }
+
+        body {
+            background: #fefefe;
+            padding-top: calc(100vh / 4);
+        }
+
+        #service-links {
+            margin-top: 15vh;
+        }
+
+        #main-content {
+            grid-template-columns: auto 15vw 35vw auto;
+            padding-bottom: 15vh;
+        }
+
+        #main-content .description {
+            margin-top: 2vw;
+        }
+
+        #main-content .description p {
+            font-family: 'Noto Sans Georgian', sans-serif;
+            font-size: 16px;
+            font-weight: 200;
+            margin: 0;
+        }
+
+        #projects .project-entry {
+            font-family: 'Noto Sans Georgian', sans-serif;
+            font-size: 16px;
+            font-weight: 200;
+            margin: 0;
+        }
+
+        #projects .project-entry {
+            margin-bottom: 1vh;
+        }
+
+        #projects .project-entry a {
+            color: darkcyan;
+        }
+
+        #languages p {
+            font-family: 'Noto Sans Georgian', sans-serif;
+            font-size: 16px;
+            font-weight: 200;
+            margin: 0;
+        }
+
+        #languages p strong {
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <raq-banner></raq-banner>
+    <div id="main-content" style="display:grid;">
+        <div id="service-links" style="display:flex; grid-column:2/3;">
+            <raq-service-link href="https://github.com/Henri-Mikael-Korpela"
+                image-src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
+                alt="GitHub-profiili"></raq-service-link>
+            <raq-service-link href="https://www.linkedin.com/in/henri-korpela-088426ab/"
+                image-src="https://content.linkedin.com/content/dam/me/brand/en-us/brand-home/logos/In-Blue-Logo.png.original.png"
+                alt="LinkedIn-profiili"></raq-service-link>
+        </div>
+        <div id="work-experience" style="grid-column:3/4;">
+            <div class="description">
+                <p>Tahdon jatkossa kehittää liiketoimintaymmärrystä ongelmanratkaisun tueksi, pilvipalveluiden
+                    kokonaisvaltaista ymmärrystä ja
+                    laiteläheisemmän
+                    sulautetun
+                    ohjelmoinnin osaamista.</p>
+            </div>
+
+            <raq-section title="Asiantuntijuus"></raq-section>
+            <div>
+                <raq-item color="darkslateblue">Web-kehitys</raq-item>
+                <raq-item color="darkslateblue">Ohjelmointiparadigmat</raq-item>
+                <raq-item color="darkslateblue">Refaktorointi</raq-item>
+                <raq-item color="darkgreen">NodeJS</raq-item>
+                <raq-item color="darkgreen">React</raq-item>
+                <raq-item color="darkgreen">WordPress</raq-item>
+                <raq-item color="darkgreen">jQuery</raq-item>
+                <raq-item color="darkcyan">JavaScript</raq-item>
+                <raq-item color="darkcyan">TypeScript</raq-item>
+                <raq-item color="darkcyan">HTML</raq-item>
+                <raq-item color="darkcyan">CSS</raq-item>
+                <raq-item color="darkcyan">C#</raq-item>
+                <raq-item color="darkcyan">PHP</raq-item>
+                <raq-item color="darkcyan">C</raq-item>
+                <raq-item color="darkcyan">C++</raq-item>
+            </div>
+
+            <raq-section title="Kiinnostuksen kohteet"></raq-section>
+            <div>
+                <raq-item color="darkslateblue">Pilvipalvelut</raq-item>
+                <raq-item color="darkslateblue">Web-komponentit</raq-item>
+                <raq-item color="darkslateblue">Refaktorointi</raq-item>
+                <raq-item color="darkslateblue">Testauksen automatisointi</raq-item>
+                <raq-item color="darkgreen">Azure</raq-item>
+                <raq-item color="darkgreen">Docker</raq-item>
+                <raq-item color="darkgreen">Linux</raq-item>
+                <raq-item color="darkgreen">WebAssembly</raq-item>
+                <raq-item color="darkcyan">Rust</raq-item>
+                <raq-item color="darkcyan">Lisp</raq-item>
+            </div>
+
+            <raq-section title="Työkokemus"></raq-section>
+            <raq-work-experience-entry company="Vincit"
+                company-logo-url="https://media.licdn.com/dms/image/D4D0BAQGrPrF09uzPsA/company-logo_100_100/0/1695900079318/vincit_plc_logo?e=1708560000&v=beta&t=Sec-7SkZvHQ_UkUtxtduWIJsQzeibXXLQ2KhTv9tZ-Q"
+                duration="elokuu 2022 - nykyhetki" employment-type="Kokoaikainen" role="Ohjelmistosuunnittelija"
+                description="Työskennelty vaihtelevasti taustalogiikan ja käyttöliittymän parissa NodeJS:llä, TypeScriptillä ja Reactilla. Optimoitu tietokantakyselyitä.">
+                <raq-item color="darkslateblue">Web-kehitys</raq-item>
+                <raq-item color="darkslateblue">Ketterä kehitys</raq-item>
+                <raq-item color="darkslateblue">Pilvipalvelut</raq-item>
+                <raq-item color="darkslateblue">Refaktorointi</raq-item>
+                <raq-item color="darkslateblue">Samanaikaisuus (concurrency)</raq-item>
+                <raq-item color="darkslateblue">Yksikkötestaus</raq-item>
+                <raq-item color="darkslateblue">Suorituskykyoptimointi</raq-item>
+                <raq-item color="darkgreen">AWS</raq-item>
+                <raq-item color="darkgreen">Google Cloud</raq-item>
+                <raq-item color="darkgreen">Git</raq-item>
+                <raq-item color="darkgreen">React</raq-item>
+                <raq-item color="darkgreen">NodeJS</raq-item>
+                <raq-item color="darkgreen">Docker</raq-item>
+                <raq-item color="darkgreen">Linux</raq-item>
+                <raq-item color="darkgreen">PostgreSQL</raq-item>
+                <raq-item color="darkgreen">Elasticsearch</raq-item>
+                <raq-item color="darkcyan">TypeScript</raq-item>
+                <raq-item color="darkcyan">HTML</raq-item>
+                <raq-item color="darkcyan">CSS</raq-item>
+                <raq-item color="darkcyan">SQL</raq-item>
+                <raq-item color="darkcyan">Bash</raq-item>
+            </raq-work-experience-entry>
+            <raq-work-experience-entry company="Tammi Digital"
+                company-logo-url="https://media.licdn.com/dms/image/C4D0BAQGeFGRDGL_hpg/company-logo_100_100/0/1630557411105/tammi_digital_logo?e=1708560000&v=beta&t=CmuAB5JrS6OJGSPSUM9yvpnLiuq4opQDn0jXn2rBw3Q"
+                duration="syyskuu 2018 - elokuu 2022" employment-type="Kokoaikainen" role="Ohjelmistokehittäjä"
+                description="Designed and implemented various REST API integrations in JavaScript (NodeJS), PHP and TypeScript with MongoDB for database. Worked with React and on Wordpress sites with a focus on tailored solutions using advanced programming techniques. I also worked on integrations like strong identification.">
+                <raq-item color="darkslateblue">Web-kehitys</raq-item>
+                <raq-item color="darkslateblue">Ohjelmistoarkkitehtuuri</raq-item>
+                <raq-item color="darkslateblue">Integrointi</raq-item>
+                <raq-item color="darkslateblue">Refaktorointi</raq-item>
+                <raq-item color="darkslateblue">Samanaikaisuus (concurrency)</raq-item>
+                <raq-item color="darkslateblue">Yksikkötestaus</raq-item>
+                <raq-item color="darkslateblue">Saavutettavuus</raq-item>
+                <raq-item color="darkgreen">jQuery</raq-item>
+                <raq-item color="darkgreen">WordPress</raq-item>
+                <raq-item color="darkgreen">Git</raq-item>
+                <raq-item color="darkgreen">React</raq-item>
+                <raq-item color="darkgreen">NodeJS</raq-item>
+                <raq-item color="darkgreen">MongoDB</raq-item>
+                <raq-item color="darkgreen">MySQL</raq-item>
+                <raq-item color="darkgreen">SilverStripe</raq-item>
+                <raq-item color="darkgreen">Linux</raq-item>
+                <raq-item color="darkolivegreen">M-Files</raq-item>
+                <raq-item color="darkolivegreen">Visma Tampuuri</raq-item>
+                <raq-item color="darkolivegreen">KOHO</raq-item>
+                <raq-item color="darkcyan">JavaScript</raq-item>
+                <raq-item color="darkcyan">TypeScript</raq-item>
+                <raq-item color="darkcyan">PHP</raq-item>
+                <raq-item color="darkcyan">HTML</raq-item>
+                <raq-item color="darkcyan">CSS</raq-item>
+                <raq-item color="darkcyan">SQL</raq-item>
+                <raq-item color="darkcyan">Visual Basic</raq-item>
+            </raq-work-experience-entry>
+            <raq-work-experience-entry company="CGI"
+                company-logo-url="https://media.licdn.com/dms/image/C4E0BAQErzXWSFkn9tQ/company-logo_100_100/0/1663664110809/cgi_logo?e=1708560000&v=beta&t=y08k0NXnwQ0SqeNuUabiCGF88FvWKRsxVPZu5xgBaSM"
+                duration="marraskuu 2017 - marraskuu 2018" employment-type="Kokoaikainen" role="Junior-konsultti"
+                description="Further developed an Angular 2 application serving as a basis for customer projects.">
+                <raq-item color="darkslateblue">Web-kehitys</raq-item>
+                <raq-item color="darkslateblue">UI-suunnittelu</raq-item>
+                <raq-item color="darkslateblue">Virtualisointi</raq-item>
+                <raq-item color="darkgreen">Angular</raq-item>
+                <raq-item color="darkgreen">NodeJS</raq-item>
+                <raq-item color="darkgreen">Git</raq-item>
+                <raq-item color="darkgreen">Hyper-V</raq-item>
+                <raq-item color="darkcyan">JavaScript</raq-item>
+                <raq-item color="darkcyan">TypeScript</raq-item>
+                <raq-item color="darkcyan">C#</raq-item>
+                <raq-item color="darkcyan">HTML</raq-item>
+                <raq-item color="darkcyan">CSS</raq-item>
+            </raq-work-experience-entry>
+            <raq-work-experience-entry company="CGI"
+                company-logo-url="https://media.licdn.com/dms/image/C4E0BAQErzXWSFkn9tQ/company-logo_100_100/0/1663664110809/cgi_logo?e=1708560000&v=beta&t=y08k0NXnwQ0SqeNuUabiCGF88FvWKRsxVPZu5xgBaSM"
+                duration="toukokuu 2017 - lokakuu 2018" employment-type="Kokoaikainen" role="Trainee"
+                description="Worked with augmented/mixed reality technology using Microsoft Hololens in Unity game engine. Further developed an Angular 2 application serving as a basis for customer projects.">
+                <raq-item color="darkslateblue">Web-kehitys</raq-item>
+                <raq-item color="darkslateblue">Lisätty todellisuus (AR/MR)</raq-item>
+                <raq-item color="darkslateblue">Videopeliohjelmointi</raq-item>
+                <raq-item color="darkgreen">Angular</raq-item>
+                <raq-item color="darkgreen">NodeJS</raq-item>
+                <raq-item color="darkgreen">Git</raq-item>
+                <raq-item color="darkgreen">Unity 3D</raq-item>
+                <raq-item color="darkolivegreen">Microsoft HoloLens</raq-item>
+                <raq-item color="darkcyan">JavaScript</raq-item>
+                <raq-item color="darkcyan">TypeScript</raq-item>
+                <raq-item color="darkcyan">C#</raq-item>
+                <raq-item color="darkcyan">Python</raq-item>
+                <raq-item color="cornflowerblue">MQTT</raq-item>
+            </raq-work-experience-entry>
+            <raq-work-experience-entry company="Rantalainen Yhtiöt"
+                company-logo-url="https://media.licdn.com/dms/image/C4D0BAQHfW9qSpbsMUw/company-logo_100_100/0/1630581404491/rantalainen_oy_logo?e=1708560000&v=beta&t=CX_7oB_WLn-ICNlbkXb-Ft-jcwopVmpQOLwXBxv0VTM"
+                duration="kesäkuu 2016 - elokuu 2016, marraskuu 2016 - maaliskuu 2017" employment-type="Kokoaikainen"
+                role="Ohjelmistokehittäjä"
+                description="Designed and implemented an online service for feedback management in AngularJS and PHP. Also worked on an intranet application among other miscellaneous software. Developed feedback management system for staff in Sharepoint environment. Was responsible for development of the entire software from beginning to end. Worked part-time remotely.">
+                <raq-item color="darkslateblue">Web-kehitys</raq-item>
+                <raq-item color="darkslateblue">UI-suunnittelu</raq-item>
+                <raq-item color="darkgreen">jQuery</raq-item>
+                <raq-item color="darkgreen">Concrete CMS</raq-item>
+                <raq-item color="darkolivegreen">SharePoint</raq-item>
+                <raq-item color="darkcyan">JavaScript</raq-item>
+                <raq-item color="darkcyan">PHP</raq-item>
+                <raq-item color="darkcyan">HTML</raq-item>
+                <raq-item color="darkcyan">CSS</raq-item>
+            </raq-work-experience-entry>
+
+            <raq-section title="Sertifikaatit"></raq-section>
+            <raq-certificate-entry name="Microsoft Certified: Azure AI Fundamentals" company="Microsoft"
+                company-logo-url="https://media.licdn.com/dms/image/C560BAQE88xCsONDULQ/company-logo_100_100/0/1630652622688/microsoft_logo?e=1708560000&v=beta&t=CH8G9hTWUUksZhOLtzvNyx_XyaDo5pL0gmr85MsibLo"
+                time="syyskuu 2023"
+                url="https://learn.microsoft.com/api/credentials/share/en-us/HenriKorpela-4556/16B9456EA9C1E0E3?sharingId"></raq-certificate-entry>
+
+            <raq-section title="Projektit"></raq-section>
+            <div id="projects">
+                <p class="project-entry"><strong><a href="https://github.com/Henri-Mikael-Korpela/open-spyro"
+                            target="_blank">OpenSpyro</a></strong> Oma avoimen
+                    lähdekoodin projekti, jonka tavoitteena on tehdä takaisinmallinnus (reverse engineering),
+                    dekompiloiden
+                    alkuperäinen <a href="https://en.wikipedia.org/wiki/Spyro_the_Dragon">Spyro the
+                        Dragon</a> Playstationille konekielestä omalle C-kielen kaltaiselle ohjelmointikielelleni ja sen
+                    avulla lopulta
+                    portata
+                    peli
+                    toimimaan Linuxilla
+                    ja Windowsilla.</p>
+                <div>
+                    <raq-item color="darkslateblue">Takaisinmallinnus</raq-item>
+                    <raq-item color="darkslateblue">Porttaaminen</raq-item>
+                    <raq-item color="darkslateblue">Videopeliohjelmointi</raq-item>
+                    <raq-item color="darkslateblue">Ohjelmointikielen kehittäminen</raq-item>
+                    <raq-item color="darkslateblue">Kääntäjän kehittäminen</raq-item>
+                    <raq-item color="darkgreen">Ghidra</raq-item>
+                    <raq-item color="darkcyan">Rust</raq-item>
+                    <raq-item color="darkcyan">C</raq-item>
+                    <raq-item color="darkcyan">MIPS R3000 Assembly</raq-item>
+                </div>
+            </div>
+
+            <raq-section title="Koulutus"></raq-section>
+            <raq-education-entry name="Bachelor of Business Administration (BBA)"
+                provider="Hämeen ammattikorkeakoulu (HAMK)"
+                provider-logo-url="https://media.licdn.com/dms/image/D4D0BAQE9din5oqgxJQ/company-logo_100_100/0/1692076427972/hamk_logo?e=1708560000&v=beta&t=QmP29z0csqD9YA4y_zP_ISIHrTZp2UraX0x6_Vzh0cQ"
+                time="2014-2017"
+                description="Studied big data, programming (C#, Java, Javascript, PHP), game programming (Unity and XNA), system administration, web development and version control using Git. Worked on a lot of school-related projects, which had to do with programming and web development."></raq-education-entry>
+
+            <raq-section title="Kielitaito"></raq-section>
+            <div id="languages">
+                <p><strong>suomi</strong> äidinkieli</p>
+                <p><strong>englanti</strong> kaksikielinen sujuvuus</p>
+                <p><strong>saksa</strong> alkeet</p>
+                <p><strong>ranska</strong> alkeet</p>
+                <p><strong>Raamatun heprea</strong> alkeet</p>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        import "./Banner.js";
+        import "./CertificateEntry.js";
+        import "./EducationEntry.js";
+        import "./Item.js";
+        import "./Section.js";
+        import "./ServiceLink.js";
+        import "./WorkExperienceEntry.js";
+    </script>
+</body>
+
+</html>
