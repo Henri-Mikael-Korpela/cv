@@ -22,13 +22,34 @@
             padding-top: calc(100vh / 4);
         }
 
+        @media screen and (max-width: 640px) {
+            body {
+                padding-top: 80px;
+            }
+        }
+
         #service-links {
             margin-top: 15vh;
         }
 
+        @media screen and (max-width: 640px) {
+            #service-links {
+                margin-top: 0;
+            }
+        }
+
         #main-content {
+            display: grid;
             grid-template-columns: auto 15vw 35vw auto;
             padding-bottom: 15vh;
+        }
+
+        @media screen and (max-width:640px) {
+            #main-content {
+                display: block;
+                margin: 0 auto;
+                width: 85vw;
+            }
         }
 
         #main-content .description {
@@ -72,7 +93,7 @@
 
 <body>
     <raq-banner></raq-banner>
-    <div id="main-content" style="display:grid;">
+    <div id="main-content">
         <div id="service-links" style="display:flex; grid-column:2/3;">
             <raq-service-link href="https://github.com/Henri-Mikael-Korpela"
                 image-src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
