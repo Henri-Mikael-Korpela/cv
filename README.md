@@ -6,10 +6,9 @@ This is my CV focused on software development. It is implemented using JavaScrip
 
 Bring your own favicon!
 
-## Deployment to FTP server
+## Deployment to an FTP server
 
-In order to display CV online, I have used FTP connection to deploy files. The deployment requires `.env` file
-with the following content (values are example values):
+I set up deployment of CV online earlier using FTP connection. FTP deployment uses `deploy_ftp.py` script (requires Python to run). The deployment also requires `.env` file with the following content (values are example values):
 
 ```
 FTP_SERVER_HOST=ftp.example.com
@@ -18,3 +17,5 @@ FTP_SERVER_PASSWORD=ftppassword
 FTP_SERVER_USERNAME=ftpuser
 FTP_SERVER_OUTPUT_DIR=/exampledir
 ```
+
+Script is tested with Python version 3.10.
