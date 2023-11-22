@@ -19,3 +19,9 @@ FTP_SERVER_OUTPUT_DIR=/exampledir
 ```
 
 Script is tested with Python version 3.10.
+
+## Deployment to Azure as a Static Web App
+
+CV online actually runs on Azure Wep Apps service. I set up `/src` using Static Web App (SWA) and GitHub integration using Azure Portal. 
+
+There is currently no deployment script to Azure, but there might be in the future!
