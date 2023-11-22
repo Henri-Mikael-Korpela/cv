@@ -30,7 +30,7 @@ const style = `
 const template = document.createElement("template");
 template.innerHTML = `
     <style>${style}</style>
-    <a class="service-link">
+    <a class="service-link" target="_blank">
         <img/>
         <span></span>
     </a>
