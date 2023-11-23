@@ -92,7 +92,7 @@ const mobileStyle = `
 const printStyle = `
     #banner-print {
         background: #323b4c;
-        display:grid;
+        display:none;
         grid-template-columns: ${BANNER_DESKTOP_GRID_TEMPLATE_COLUMNS_DEFAULT};
         padding:80px 0 24px 0;
         width:100vw;
@@ -223,15 +223,18 @@ class Banner extends HTMLElement {
             }
         }
         window.addEventListener("resize", onResize);
-        onResize();
 
-        const print = true;
-
-        if (print) {
+        window.addEventListener("beforeprint", () => {
             bannerDesktopElem.style.display = "none";
             bannerMobileElem.style.display = "none";
             bannerPrintElem.style.display = "grid";
-        }
+        });
+        window.addEventListener("afterprint", () => {
+            bannerPrintElem.style.display = "none";
+            onResize();
+        });
+
+        onResize();
     }
 }
 customElements.define("raq-banner", Banner);
