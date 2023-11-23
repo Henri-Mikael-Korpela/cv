@@ -6,6 +6,14 @@ This is my CV focused on software development. It is implemented using JavaScrip
 
 Bring your own favicon!
 
+## Running locally
+
+You can simply statically serve `/src` directory contents. For example, if you have Python 3, you can start a static HTTP server from project root directory as follows:
+
+```bash
+python3 -m http-server --directory ./src <PORT>
+```
+
 ## Deployment to an FTP server
 
 I set up deployment of CV online earlier using FTP connection. FTP deployment uses `deploy_ftp.py` script (requires Python to run). The deployment also requires `.env` file with the following content (values are example values):
