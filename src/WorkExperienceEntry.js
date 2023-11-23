@@ -1,3 +1,5 @@
+const FONT_FAMILY = "'Noto Sans Georgian', sans-serif";
+
 const style = `
     .container {
         grid-template-columns: 48px 1vw auto;
@@ -10,7 +12,7 @@ const style = `
     }
 
     h3 {
-        font-family: 'Noto Sans Georgian', sans-serif;
+        font-family: ${FONT_FAMILY};
         font-size: 18px;
         font-weight: 500;
         margin: 0;
@@ -18,7 +20,7 @@ const style = `
 
     .employment-type {
         color: #323b4c;
-        font-family: 'Noto Sans Georgian', sans-serif;
+        font-family: ${FONT_FAMILY};
         font-size: 14px;
         font-weight: 200;
         margin: 0;
@@ -26,14 +28,14 @@ const style = `
 
     .entry-role {
         color: #323b4c;
-        font-family: 'Noto Sans Georgian', sans-serif;
+        font-family: ${FONT_FAMILY};
         font-size: 14px;
         font-weight: 500;
         margin: 0;
     }
 
     .description {
-        font-family: 'Noto Sans Georgian', sans-serif;
+        font-family: ${FONT_FAMILY};
         font-size: 14px;
         font-weight: 200;
         margin: 1vh 0 0 0;
@@ -47,7 +49,7 @@ const style = `
 const template = document.createElement("template");
 template.innerHTML = `
     <style>${style}</style>
-    <div class="container" style="display:grid">
+    <div class="container" style="display:grid;">
         <img style="grid-column:1/2;">
         <div style="grid-column:3/4;">
             <h3></h3>

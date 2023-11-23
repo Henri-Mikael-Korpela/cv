@@ -7,11 +7,14 @@ const BANNER_DESKTOP_ROLE_FONT_SIZE_DEFAULT = 24;
 
 const BANNER_MOBILE_GRID_TEMPLATE_COLUMNS_DEFAULT = "auto 48px 2vw auto";
 
+const NAME = "Henri Korpela";
 const PHOTO_URL = "https://media.licdn.com/dms/image/D4D03AQFllWSHMGRY8g/profile-displayphoto-shrink_800_800/0/1695896893863?e=1705536000&v=beta&t=oK3qD4nVcA8bXiEys86wieg_sL_h6PkgjasJQQJYUnQ";
+const ROLE = "Full stack -ohjelmistokehittäjä";
 
 const desktopStyle = `
     #banner-desktop {
         background: #323b4c;
+        display:grid;
         grid-template-columns: ${BANNER_DESKTOP_GRID_TEMPLATE_COLUMNS_DEFAULT};
         height: calc(100vh / 4);
         left:0;
@@ -86,17 +89,53 @@ const mobileStyle = `
         margin-top: 8px;
     }
 `;
+const printStyle = `
+    #banner-print {
+        background: #323b4c;
+        display:grid;
+        grid-template-columns: ${BANNER_DESKTOP_GRID_TEMPLATE_COLUMNS_DEFAULT};
+        padding:80px 0 24px 0;
+        width:100vw;
+    }
+
+    #banner-print-name h1,
+    #banner-print-role {
+        color: white;
+        font-family: 'Noto Sans Georgian', sans-serif;
+        margin: 0;
+        transition:font-size 0.325s;
+    }
+
+    #banner-print-name h1 {
+        font-size: ${BANNER_DESKTOP_NAME_FONT_SIZE_DEFAULT}px;
+        font-weight: 500;
+    }
+
+    #banner-print-role {
+        font-size: ${BANNER_DESKTOP_ROLE_FONT_SIZE_DEFAULT}px;
+        font-weight: 200;
+    }
+
+    #banner-print-photo {
+        aspect-ratio: 1/1;
+        background-image: url('${PHOTO_URL}');
+        background-size: cover;
+        border: 4px solid white;
+        border-radius: 100%;
+        transition:height 0.5s;
+    }
+`;
 
 const template = document.createElement("template");
 template.innerHTML = `
-    <style>${desktopStyle}${mobileStyle}</style>
-    <div id="banner-desktop" style="display:grid; grid-template-rows:${BANNER_DESKTOP_GRID_TEMPLATE_ROWS_DEFAULT}">
+    <style>${desktopStyle}${mobileStyle}${printStyle}</style>
+    <div id="banner-desktop" style="grid-template-rows:${BANNER_DESKTOP_GRID_TEMPLATE_ROWS_DEFAULT}">
         <div style="grid-column:2/3;grid-row:2/3;">
             <div id="banner-desktop-photo"></div>
         </div>
         <div id="banner-desktop-name" style="grid-column:4/5; grid-row:2/3;">
-            <h1>Henri Korpela</h1>
-            <p id="banner-desktop-role">Full-stack-ohjelmistokehittäjä</p>
+            <h1>${NAME}</h1>
+            <p id="banner-desktop-role">${ROLE}</p>
         </div>
     </div>
     <div id="banner-mobile" style="display:grid;">
@@ -104,8 +143,17 @@ template.innerHTML = `
             <div id="banner-mobile-photo"></div>
         </div>
         <div id="banner-mobile-name" style="grid-column:4/5;">
-            <h1>Henri Korpela</h1>
-            <p id="banner-mobile-role">Full-stack-ohjelmistokehittäjä</p>
+            <h1>${NAME}</h1>
+            <p id="banner-mobile-role">${ROLE}</p>
+        </div>
+    </div>
+    <div id="banner-print" style="grid-template-rows:${BANNER_DESKTOP_GRID_TEMPLATE_ROWS_DEFAULT}">
+        <div style="grid-column:2/3;">
+            <div id="banner-print-photo"></div>
+        </div>
+        <div id="banner-print-name" style="grid-column:4/5;">
+            <h1>${NAME}</h1>
+            <p id="banner-print-role">${ROLE}</p>
         </div>
     </div>
 `;
@@ -123,6 +171,8 @@ class Banner extends HTMLElement {
         const bannerDesktopRoleElem = this._shadow_root.getElementById("banner-desktop-role");
 
         const bannerMobileElem = this._shadow_root.getElementById("banner-mobile");
+
+        const bannerPrintElem = this._shadow_root.getElementById("banner-print");
 
         window.addEventListener("scroll", () => {
             const scrollAmount = window.scrollY;
@@ -174,6 +224,14 @@ class Banner extends HTMLElement {
         }
         window.addEventListener("resize", onResize);
         onResize();
+
+        const print = true;
+
+        if (print) {
+            bannerDesktopElem.style.display = "none";
+            bannerMobileElem.style.display = "none";
+            bannerPrintElem.style.display = "grid";
+        }
     }
 }
 customElements.define("raq-banner", Banner);

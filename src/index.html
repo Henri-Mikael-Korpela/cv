@@ -28,8 +28,25 @@
             }
         }
 
+        body {
+            padding-top: 0;
+        }
+
         #service-links {
             margin-top: 15vh;
+        }
+
+        @media print {
+            #service-links {
+                display: none;
+            }
+        }
+
+        @media screen {
+            #service-links {
+                display: flex;
+                grid-column: 2/3;
+            }
         }
 
         @media screen and (max-width: 640px) {
@@ -42,6 +59,14 @@
             display: grid;
             grid-template-columns: auto 15vw 35vw auto;
             padding-bottom: 15vh;
+        }
+
+        @media print {
+            #main-content {
+                display: block;
+                margin: 0 auto;
+                width: 75vw;
+            }
         }
 
         @media screen and (max-width:640px) {
@@ -102,6 +127,12 @@
             padding-top: 2vh;
         }
 
+        @media print {
+            #other {
+                display: none;
+            }
+        }
+
         #other p {
             color: white;
             font-family: 'Noto Sans Georgian', sans-serif;
@@ -114,13 +145,19 @@
         #other p a {
             color: cyan;
         }
+
+        @media print {
+            #page-top-padding {
+                padding-top: 64px;
+            }
+        }
     </style>
 </head>
 
 <body>
     <raq-banner></raq-banner>
     <div id="main-content">
-        <div id="service-links" style="display:flex; grid-column:2/3;">
+        <div id="service-links">
             <raq-service-link href="https://github.com/Henri-Mikael-Korpela"
                 image-src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
                 alt="GitHub-profiili"></raq-service-link>
@@ -180,6 +217,8 @@
                 <raq-item color="darkcyan" years="2">Lisp</raq-item>
                 <raq-item color="darkcyan">Bash</raq-item>
             </div>
+
+            <div style="page-break-after: always;"></div>
 
             <raq-section title="Työkokemus"></raq-section>
             <raq-work-experience-entry company="Vincit"
@@ -265,6 +304,10 @@
                 <raq-item color="darkcyan">HTML</raq-item>
                 <raq-item color="darkcyan">CSS</raq-item>
             </raq-work-experience-entry>
+
+            <div style="page-break-after: always;"></div>
+            <div id="page-top-padding"></div>
+
             <raq-work-experience-entry company="CGI"
                 company-logo-url="https://media.licdn.com/dms/image/C4E0BAQErzXWSFkn9tQ/company-logo_100_100/0/1663664110809/cgi_logo?e=1708560000&v=beta&t=y08k0NXnwQ0SqeNuUabiCGF88FvWKRsxVPZu5xgBaSM"
                 duration="toukokuu 2017 - lokakuu 2018" employment-type="Kokoaikainen" role="Trainee"
@@ -330,6 +373,8 @@
                     <raq-item color="darkcyan">MIPS R3000 Assembly</raq-item>
                 </div>
             </div>
+
+            <div style="page-break-after: always;"></div>
 
             <raq-section title="Koulutus"></raq-section>
             <raq-education-entry name="Bachelor of Business Administration (BBA)"
