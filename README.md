@@ -11,7 +11,7 @@ Bring your own favicon!
 You can simply statically serve `/src` directory contents. For example, if you have Python 3, you can start a static HTTP server from project root directory as follows:
 
 ```bash
-python3 -m http-server --directory ./src <PORT>
+python3 -m http.server --directory ./src <PORT>
 ```
 
 ## Deployment to an FTP server
