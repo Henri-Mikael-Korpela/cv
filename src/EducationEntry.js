@@ -42,6 +42,10 @@ const style = `
         font-weight: 200;
         margin: 1vh 0 0 0;
     }
+
+    .items {
+        margin-top: 1vh;
+    }
 `;
 
 const template = document.createElement("template");
@@ -54,6 +58,7 @@ template.innerHTML = `
             <p class="name"></p>
             <p class="time"></p>
             <p class="description"></p>
+            <div class='items'></div>
         </div>
     </div>
 `;
@@ -78,6 +83,8 @@ class EducationEntry extends HTMLElement {
         this._shadow_root.querySelector('.description').innerText = description;
         this._shadow_root.querySelector('.name').innerText = name;
         this._shadow_root.querySelector('.time').innerText = time;
+
+        this._shadow_root.querySelector('.items').innerHTML = this.innerHTML;
     }
 }
 customElements.define("raq-education-entry", EducationEntry);
