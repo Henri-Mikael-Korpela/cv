@@ -104,17 +104,17 @@
         }
 
         #projects .project-entry {
+            margin-bottom: 2vh;
+        }
+
+        #projects .project-entry p {
             font-family: 'Noto Sans Georgian', sans-serif;
             font-size: 16px;
             font-weight: 200;
-            margin: 0;
+            margin: 0 0 1vh 0;
         }
 
-        #projects .project-entry {
-            margin-bottom: 1vh;
-        }
-
-        #projects .project-entry a {
+        #projects .project-entry p a {
             color: darkcyan;
         }
 
@@ -358,18 +358,8 @@
 
             <raq-section title="Projektit"></raq-section>
             <div id="projects">
-                <p class="project-entry"><strong><a href="https://github.com/Henri-Mikael-Korpela/open-spyro"
-                            target="_blank">OpenSpyro</a></strong> Oma avoimen
-                    lähdekoodin projekti, jonka tavoitteena on tehdä takaisinmallinnus (reverse engineering),
-                    dekompiloiden
-                    alkuperäinen <a href="https://en.wikipedia.org/wiki/Spyro_the_Dragon">Spyro the
-                        Dragon</a> Playstationille konekielestä omalle C-kielen kaltaiselle ohjelmointikielelleni ja sen
-                    avulla lopulta
-                    portata
-                    peli
-                    toimimaan Linuxilla
-                    ja Windowsilla.</p>
-                <div>
+                <raq-project-entry name="OpenSpyro" url="https://github.com/Henri-Mikael-Korpela/open-spyro"
+                    description="Oma avoimen lähdekoodin projekti, jonka tavoitteena on tehdä takaisinmallinnus (reverse engineering), dekompiloiden alkuperäinen <a href='https://en.wikipedia.org/wiki/Spyro_the_Dragon'>Spyro the Dragon</a> Playstationille konekielestä omalle C-kielen kaltaiselle ohjelmointikielelleni ja sen avulla lopulta portata peli toimimaan Linuxilla ja Windowsilla.">
                     <raq-item color="darkslateblue">Takaisinmallinnus</raq-item>
                     <raq-item color="darkslateblue">Porttaaminen</raq-item>
                     <raq-item color="darkslateblue">Videopeliohjelmointi</raq-item>
@@ -379,7 +369,15 @@
                     <raq-item color="darkcyan">Rust</raq-item>
                     <raq-item color="darkcyan">C</raq-item>
                     <raq-item color="darkcyan">MIPS R3000 Assembly</raq-item>
-                </div>
+                </raq-project-entry>
+
+                <raq-project-entry name="Simple HTTP API Server"
+                    url="https://github.com/Henri-Mikael-Korpela/simple-http-api-server"
+                    description="Demo HTTP-palvelimesta C:llä kirjoitettuna.">
+                    <raq-item color="darkslateblue">Web-kehitys</raq-item>
+                    <raq-item color="darkcyan">C</raq-item>
+                    <raq-item color="cornflowerblue">HTTP</raq-item>
+                </raq-project-entry>
             </div>
 
             <div style="page-break-after: always;"></div>
@@ -422,6 +420,7 @@
         import "./CertificateEntry.js";
         import "./EducationEntry.js";
         import "./Item.js";
+        import "./ProjectEntry.js";
         import "./Section.js";
         import "./ServiceLink.js";
         import "./WorkExperienceEntry.js";
