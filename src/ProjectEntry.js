@@ -18,10 +18,10 @@ const style = `
 const template = document.createElement("template");
 template.innerHTML = `
     <style>${style}</style>
-    <div class="project-entry">
+    <li class="project-entry">
         <p><strong></strong> <span></span></p>
         <div class="items"></div>
-    </div>
+    </li>
 `;
 class EducationEntry extends HTMLElement {
     constructor() {
