@@ -33,3 +33,7 @@ Script is tested with Python version 3.10.
 CV online actually runs on Azure Wep Apps service. I set up `/src` using Static Web App (SWA) and GitHub integration using Azure Portal. 
 
 There is currently no deployment script to Azure, but there might be in the future!
+
+## Known issues
+
+- Deployment via FTP does not work, because the deployment script in Python does not account for deploying subdirectory content (namely assets directory). The script should be updated to deploy the whole `/src` directory recursively.
