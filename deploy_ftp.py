@@ -25,7 +25,8 @@ src_dir += "/src"
 ftp = ftplib.FTP(host)
 ftp.login(username, password)
 
-# Send all source files to FTP server
+# Send all source files to FTP server.
+# Every file in the src directory will be uploaded.
 for file_path in os.listdir(src_dir):
     abs_file_path = os.path.join(src_dir, file_path)
     with open(abs_file_path, "rb") as file:
