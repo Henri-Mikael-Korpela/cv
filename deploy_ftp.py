@@ -1,3 +1,4 @@
+#! /usr/bin/env python3
 import ftplib
 import os
 import sys
