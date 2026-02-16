@@ -6,11 +6,6 @@ const style = `
         margin-bottom: 2vw;
     }
 
-    img {
-        aspect-ratio: 1/1;
-        width: 100%;
-    }
-
     h3 {
         font-family: ${FONT_FAMILY};
         font-size: 18px;
@@ -49,15 +44,12 @@ const style = `
 const template = document.createElement("template");
 template.innerHTML = `
     <style>${style}</style>
-    <div class="container" style="display:grid;">
-        <img style="grid-column:1/2;">
-        <div style="grid-column:3/4;">
-            <h3></h3>
-            <p class="entry-role"></p>
-            <p class="employment-type"></p>
-            <p class="description"></p>
-            <div class='items'></div>
-        </div>
+    <div class="container">
+        <h3></h3>
+        <p class="entry-role"></p>
+        <p class="employment-type"></p>
+        <p class="description"></p>
+        <div class='items'></div>
     </div>
 `;
 class WorkExperienceEntry extends HTMLElement {
@@ -73,10 +65,6 @@ class WorkExperienceEntry extends HTMLElement {
         const duration = this.getAttribute("duration");
         const employmentType = this.getAttribute("employment-type");
         const role = this.getAttribute("role");
-
-        const imgElem = this._shadow_root.querySelector("img");
-        imgElem.alt = company;
-        imgElem.src = companyLogoUrl;
 
         this._shadow_root.querySelector('h3').innerText = company;
         this._shadow_root.querySelector('.description').innerText = description;
