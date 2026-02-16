@@ -4,11 +4,6 @@ const style = `
         margin-bottom: 2vw;
     }
 
-    img {
-        aspect-ratio: 1/1;
-        width: 100%;
-    }
-
     h3 {
         font-family: 'Noto Sans Georgian', sans-serif;
         font-size: 18px;
@@ -40,13 +35,10 @@ const style = `
 const template = document.createElement("template");
 template.innerHTML = `
     <style>${style}</style>
-    <div class="container" style="display:grid">
-        <img style="grid-column:1/2;">
-        <div style="grid-column:3/4;">
-            <h3></h3>
-            <p class="company"></p>
-            <p class="time"></p>
-        </div>
+    <div class="container">
+        <h3></h3>
+        <p class="company"></p>
+        <p class="time"></p>
     </div>
 `;
 class CertificateEntry extends HTMLElement {
@@ -61,10 +53,6 @@ class CertificateEntry extends HTMLElement {
         const name = this.getAttribute("name");
         const time = this.getAttribute("time");
         const url = this.getAttribute("url");
-
-        const imgElem = this._shadow_root.querySelector("img");
-        imgElem.alt = company;
-        imgElem.src = companyLogoUrl;
 
         this._shadow_root.querySelector('h3').innerHTML = `<a href="${url}" target="_balnk">${name}</a>`;
         this._shadow_root.querySelector('.company').innerText = company;
