@@ -4,11 +4,6 @@ const style = `
         margin-bottom: 2vw;
     }
 
-    img {
-        aspect-ratio: 1/1;
-        width: 100%;
-    }
-
     h3 {
         font-family: 'Noto Sans Georgian', sans-serif;
         font-size: 18px;
@@ -51,15 +46,12 @@ const style = `
 const template = document.createElement("template");
 template.innerHTML = `
     <style>${style}</style>
-    <div class="container" style="display:grid">
-        <img style="grid-column:1/2;">
-        <div style="grid-column:3/4;">
-            <h3></h3>
-            <p class="name"></p>
-            <p class="time"></p>
-            <p class="description"></p>
-            <div class='items'></div>
-        </div>
+    <div class="container"">
+        <h3></h3>
+        <p class="name"></p>
+        <p class="time"></p>
+        <p class="description"></p>
+        <div class='items'></div>
     </div>
 `;
 class EducationEntry extends HTMLElement {
@@ -74,10 +66,6 @@ class EducationEntry extends HTMLElement {
         const provider = this.getAttribute("provider");
         const providerLogoUrl = this.getAttribute("provider-logo-url");
         const time = this.getAttribute("time");
-
-        const imgElem = this._shadow_root.querySelector("img");
-        imgElem.alt = provider;
-        imgElem.src = providerLogoUrl;
 
         this._shadow_root.querySelector('h3').innerHTML = provider;
         this._shadow_root.querySelector('.description').innerText = description;
