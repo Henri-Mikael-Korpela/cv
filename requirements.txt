@@ -1,1 +1,2 @@
 python-decouple==3.8
+PyMuPDF==1.27.2.2
