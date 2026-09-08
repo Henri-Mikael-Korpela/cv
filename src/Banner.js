@@ -1,155 +1,126 @@
-import * as DOM from "./Dom.js";
-
-const BANNER_DESKTOP_GRID_TEMPLATE_COLUMNS_DEFAULT = "auto 13vw 2vw 35vw auto";
-const BANNER_DESKTOP_GRID_TEMPLATE_ROWS_DEFAULT = "40% 60%";
-const BANNER_DESKTOP_NAME_FONT_SIZE_DEFAULT = 42;
-const BANNER_DESKTOP_ROLE_FONT_SIZE_DEFAULT = 24;
-
-const BANNER_MOBILE_GRID_TEMPLATE_COLUMNS_DEFAULT = "auto 48px 2vw auto";
-
 const NAME = "Henri Korpela";
 const ROLE = "Full stack -ohjelmistokehittäjä";
+const EMAIL = "henri.mikael.korpela@gmail.com";
 
-const desktopStyle = `
-    #banner-desktop {
-        background: #323b4c;
-        display:grid;
-        grid-template-columns: ${BANNER_DESKTOP_GRID_TEMPLATE_COLUMNS_DEFAULT};
-        height: calc(100vh / 4);
-        left:0;
-        position:fixed;
-        top:0;
-        transition:height 0.25s;
-        width:100vw;
-        z-index:100;
+const style = `
+    :host {
+        display: block;
     }
 
-    #banner-desktop-name h1,
-    #banner-desktop-role {
+    .banner {
+        align-items: center;
+        background: linear-gradient(135deg, #1c2333 0%, #323b4c 55%, #3d4a63 100%);
+        border-radius: var(--radius-lg, 16px);
         color: white;
-        font-family: 'Noto Sans Georgian', sans-serif;
-        margin: 0;
-        transition:font-size 0.325s;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 28px;
+        padding: 40px;
     }
 
-    #banner-desktop-name h1 {
-        font-size: ${BANNER_DESKTOP_NAME_FONT_SIZE_DEFAULT}px;
+    .photo {
+        aspect-ratio: 1 / 1;
+        background-position: center;
+        background-size: cover;
+        border: 4px solid rgba(255, 255, 255, 0.85);
+        border-radius: 100%;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        flex: none;
+        width: clamp(72px, 12vw, 128px);
+    }
+
+    .identity {
+        flex: 1 1 240px;
+        min-width: 0;
+    }
+
+    .identity h1 {
+        font-family: var(--font-family);
+        font-size: clamp(24px, 4vw, 38px);
+        font-weight: 700;
+        line-height: 1.15;
+        margin: 0;
+    }
+
+    .role {
+        color: rgba(255, 255, 255, 0.78);
+        font-family: var(--font-family);
+        font-size: clamp(14px, 2vw, 18px);
+        font-weight: 400;
+        margin: 6px 0 0 0;
+    }
+
+    .email {
+        color: rgba(255, 255, 255, 0.9);
+        font-family: var(--font-family);
+        font-size: 14px;
         font-weight: 500;
+        margin: 8px 0 0 0;
     }
 
-    #banner-desktop-role {
-        font-size: ${BANNER_DESKTOP_ROLE_FONT_SIZE_DEFAULT}px;
-        font-weight: 200;
+    .email a {
+        color: inherit;
+        text-decoration: none;
     }
 
-    #banner-desktop-photo {
-        aspect-ratio: 1/1;
-        background-size: cover;
-        border: 4px solid white;
-        border-radius: 100%;
-        transition:height 0.5s;
-    }
-`;
-const mobileStyle = `
-    #banner-mobile {
-        background: #323b4c;
-        display:none;
-        grid-template-columns: ${BANNER_MOBILE_GRID_TEMPLATE_COLUMNS_DEFAULT};
-        height: 64px;
-        left:0;
-        position:fixed;
-        top:0;
-        width:100vw;
-        z-index:100;
+    .email a:hover {
+        text-decoration: underline;
     }
 
-    #banner-mobile-name h1,
-    #banner-mobile-role {
-        color: white;
-        font-family: 'Noto Sans Georgian', sans-serif;
-        margin: 0;
+    .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 16px;
     }
 
-    #banner-mobile-name h1 {
-        font-size: 21px;
-        margin-top:8px;
-    }
-    #banner-mobile-role {
-        font-size: 12px;
+    ::slotted(*) {
+        flex: none;
     }
 
-    #banner-mobile-photo {
-        aspect-ratio: 1/1;
-        background-size: cover;
-        border: 3px solid white;
-        border-radius: 100%;
-        margin-top: 8px;
-    }
-`;
-const printStyle = `
-    #banner-print {
-        background: #323b4c;
-        display:none;
-        grid-template-columns: ${BANNER_DESKTOP_GRID_TEMPLATE_COLUMNS_DEFAULT};
-        padding:80px 0 24px 0;
-        width:100vw;
-    }
+    @media print {
+        .banner {
+            background: none;
+            border-bottom: 2px solid var(--color-border, #e3e6ee);
+            border-radius: 0;
+            color: var(--color-heading, #1c2333);
+            padding: 0 0 20px 0;
+        }
 
-    #banner-print-name h1,
-    #banner-print-role {
-        color: white;
-        font-family: 'Noto Sans Georgian', sans-serif;
-        margin: 0;
-        transition:font-size 0.325s;
-    }
+        .photo {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            border-color: var(--color-muted, #6b7385);
+            box-shadow: none;
+            width: 88px;
+        }
 
-    #banner-print-name h1 {
-        font-size: ${BANNER_DESKTOP_NAME_FONT_SIZE_DEFAULT}px;
-        font-weight: 500;
-    }
+        .role {
+            color: var(--color-muted, #6b7385);
+        }
 
-    #banner-print-role {
-        font-size: ${BANNER_DESKTOP_ROLE_FONT_SIZE_DEFAULT}px;
-        font-weight: 200;
-    }
+        .email {
+            color: var(--color-text, #3a4152);
+        }
 
-    #banner-print-photo {
-        aspect-ratio: 1/1;
-        background-size: cover;
-        border: 4px solid white;
-        border-radius: 100%;
-        transition:height 0.5s;
+        .links {
+            display: none;
+        }
     }
 `;
 
 const template = document.createElement("template");
 template.innerHTML = `
-    <style>${desktopStyle}${mobileStyle}${printStyle}</style>
-    <div id="banner-desktop" style="grid-template-rows:${BANNER_DESKTOP_GRID_TEMPLATE_ROWS_DEFAULT}">
-        <div style="grid-column:2/3;grid-row:2/3;">
-            <div class="banner-photo" id="banner-desktop-photo"></div>
-        </div>
-        <div id="banner-desktop-name" style="grid-column:4/5; grid-row:2/3;">
+    <style>${style}</style>
+    <div class="banner">
+        <div class="photo"></div>
+        <div class="identity">
             <h1>${NAME}</h1>
-            <p id="banner-desktop-role">${ROLE}</p>
-        </div>
-    </div>
-    <div id="banner-mobile" style="display:grid;">
-        <div style="grid-column:2/3;">
-            <div class="banner-photo" id="banner-mobile-photo"></div>
-        </div>
-        <div id="banner-mobile-name" style="grid-column:4/5;">
-            <h1>${NAME}</h1>
-            <p id="banner-mobile-role">${ROLE}</p>
-        </div>
-    </div>
-    <div id="banner-print" style="grid-template-rows:${BANNER_DESKTOP_GRID_TEMPLATE_ROWS_DEFAULT}">
-        <div style="grid-column:2/3;">
-            <div class="banner-photo" id="banner-print-photo"></div>
-        </div>
-        <div id="banner-print-name" style="grid-column:4/5;">
-            <h1>${NAME}</h1>
-            <p id="banner-print-role">${ROLE}</p>
+            <p class="role">${ROLE}</p>
+            <p class="email"><a href="mailto:${EMAIL}">${EMAIL}</a></p>
+            <div class="links">
+                <slot></slot>
+            </div>
         </div>
     </div>
 `;
@@ -162,86 +133,7 @@ class Banner extends HTMLElement {
         this._shadow_root.appendChild(template.content.cloneNode(true));
 
         const imageSrc = this.getAttribute("image-src");
-
-        const bannerDesktopElem = this._shadow_root.getElementById("banner-desktop");
-        const bannerDesktopNameElem = this._shadow_root.querySelector("#banner-desktop-name h1");
-        const bannerDesktopPhotoElem = this._shadow_root.getElementById("banner-desktop-photo");
-        const bannerDesktopRoleElem = this._shadow_root.getElementById("banner-desktop-role");
-
-        const bannerMobileElem = this._shadow_root.getElementById("banner-mobile");
-
-        const bannerPrintElem = this._shadow_root.getElementById("banner-print");
-
-        // Initialize the banner photo elements with the image source
-        {
-            const bannerPhotoElems = this._shadow_root.querySelectorAll(".banner-photo");
-
-            for (const bannerPhotoElem of bannerPhotoElems) {
-                bannerPhotoElem.style.backgroundImage = `url(${imageSrc})`;
-            }
-        }
-
-        window.addEventListener("scroll", () => {
-            const scrollAmount = window.scrollY;
-            if (scrollAmount > 64) {
-                const bannerHeight = 64;
-                DOM.assignStyle(bannerDesktopElem, {
-                    gridTemplateColumns: "auto 72px 0 35vw auto",
-                    gridTemplateRows: "8px auto",
-                    height: `${bannerHeight}px`,
-                });
-
-                const nameFontSize = Math.floor(BANNER_DESKTOP_NAME_FONT_SIZE_DEFAULT / 2);
-                bannerDesktopNameElem.style.fontSize = `${nameFontSize}px`;
-
-                const roleFontSize = Math.floor(BANNER_DESKTOP_ROLE_FONT_SIZE_DEFAULT / 2);
-                bannerDesktopRoleElem.style.fontSize = `${roleFontSize}px`;
-
-                DOM.assignStyle(bannerDesktopPhotoElem, {
-                    borderWidth: "2px",
-                    height: `${bannerHeight - 16}px`,
-                });
-            }
-            else {
-                DOM.assignStyle(bannerDesktopElem, {
-                    gridTemplateColumns: BANNER_DESKTOP_GRID_TEMPLATE_COLUMNS_DEFAULT,
-                    gridTemplateRows: BANNER_DESKTOP_GRID_TEMPLATE_ROWS_DEFAULT,
-                    height: `calc(100vh / 4)`,
-                });
-
-                bannerDesktopNameElem.style.fontSize = `${BANNER_DESKTOP_NAME_FONT_SIZE_DEFAULT}px`;
-                bannerDesktopRoleElem.style.fontSize = `${BANNER_DESKTOP_ROLE_FONT_SIZE_DEFAULT}px`;
-
-                DOM.assignStyle(bannerDesktopPhotoElem, {
-                    borderWidth: "4px",
-                    height: `inherit`,
-                });
-            }
-        });
-
-        function onResize() {
-            if (window.innerWidth <= 640) {
-                bannerDesktopElem.style.display = "none";
-                bannerMobileElem.style.display = "grid";
-            }
-            else {
-                bannerDesktopElem.style.display = "grid";
-                bannerMobileElem.style.display = "none";
-            }
-        }
-        window.addEventListener("resize", onResize);
-
-        window.addEventListener("beforeprint", () => {
-            bannerDesktopElem.style.display = "none";
-            bannerMobileElem.style.display = "none";
-            bannerPrintElem.style.display = "grid";
-        });
-        window.addEventListener("afterprint", () => {
-            bannerPrintElem.style.display = "none";
-            onResize();
-        });
-
-        onResize();
+        this._shadow_root.querySelector(".photo").style.backgroundImage = `url(${imageSrc})`;
     }
 }
 customElements.define("raq-banner", Banner);

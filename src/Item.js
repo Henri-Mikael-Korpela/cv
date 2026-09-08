@@ -1,21 +1,40 @@
 const style = `
     p {
-        border-radius: 8px;
-        color: white;
-        display: inline-block;
-        font-family: 'Noto Sans Georgian', sans-serif;
-        font-size: 12px;
-        font-weight: 200;
-        margin: 0 0 8px 0;
-        opacity: 0.65;
-        padding: 4px 8px;
+        align-items: center;
+        background: color-mix(in srgb, var(--tag-color, #323b4c) 12%, white);
+        border: 1px solid color-mix(in srgb, var(--tag-color, #323b4c) 30%, white);
+        border-radius: 999px;
+        color: color-mix(in srgb, var(--tag-color, #323b4c) 75%, black);
+        display: inline-flex;
+        font-family: var(--font-family);
+        font-size: 11.5px;
+        font-weight: 600;
+        gap: 4px;
+        margin: 0 4px 4px 0;
+        padding: 2px 8px;
     }
+
     p > span {
-        background: rgba(0, 0, 0, 0.75);
-        border-radius: 8px;
+        background: color-mix(in srgb, var(--tag-color, #323b4c) 85%, black);
+        border-radius: 999px;
         color: white;
-        padding-left: 4px;
-        padding-right: 4px;
+        font-size: 9.5px;
+        font-weight: 700;
+        padding: 0 5px;
+    }
+
+    @media print {
+        p {
+            background: transparent;
+            border: 1px solid color-mix(in srgb, var(--tag-color, #323b4c) 55%, white);
+            color: color-mix(in srgb, var(--tag-color, #323b4c) 80%, black);
+        }
+
+        p > span {
+            background: transparent;
+            color: color-mix(in srgb, var(--tag-color, #323b4c) 80%, black);
+            padding: 0;
+        }
     }
 `;
 
@@ -25,7 +44,7 @@ template.innerHTML = `
     <p></p>
 `;
 
-class Section extends HTMLElement {
+class Item extends HTMLElement {
     constructor() {
         super();
 
@@ -35,7 +54,9 @@ class Section extends HTMLElement {
         const color = this.getAttribute("color");
 
         const pElem = this._shadow_root.querySelector("p");
-        pElem.style.backgroundColor = color;
+        if (color) {
+            pElem.style.setProperty("--tag-color", color);
+        }
 
         const years = this.getAttribute("years");
         if (years) {
@@ -46,4 +67,4 @@ class Section extends HTMLElement {
         }
     }
 }
-customElements.define("raq-item", Section);
+customElements.define("raq-item", Item);

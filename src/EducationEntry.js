@@ -1,55 +1,64 @@
 const style = `
     .container {
-        grid-template-columns: 48px 1vw auto;
-        margin-bottom: 2vw;
+        margin-bottom: 20px;
+    }
+
+    .header {
+        align-items: baseline;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 12px;
+        justify-content: space-between;
     }
 
     h3 {
-        font-family: 'Noto Sans Georgian', sans-serif;
-        font-size: 18px;
-        font-weight: 500;
-        margin: 0;
-    }
-
-    h3 a {
-        color: darkcyan;
-    }
-
-    .name {
-        color: #323b4c;
-        font-family: 'Noto Sans Georgian', sans-serif;
-        font-size: 14px;
-        font-weight: 500;
+        color: var(--color-heading);
+        font-family: var(--font-family);
+        font-size: 17px;
+        font-weight: 700;
         margin: 0;
     }
 
     .time {
-        color: #323b4c;
-        font-family: 'Noto Sans Georgian', sans-serif;
-        font-size: 14px;
-        font-weight: 200;
+        color: var(--color-muted);
+        font-family: var(--font-family);
+        font-size: 13px;
+        font-weight: 400;
         margin: 0;
+        white-space: nowrap;
+    }
+
+    .name {
+        color: var(--color-accent-dark);
+        font-family: var(--font-family);
+        font-size: 14px;
+        font-weight: 600;
+        margin: 2px 0 0 0;
     }
 
     .description {
-        font-family: 'Noto Sans Georgian', sans-serif;
+        color: var(--color-text);
+        font-family: var(--font-family);
         font-size: 14px;
-        font-weight: 200;
-        margin: 1vh 0 0 0;
+        font-weight: 400;
+        line-height: 1.55;
+        margin: 8px 0 0 0;
     }
 
     .items {
-        margin-top: 1vh;
+        margin-top: 12px;
     }
 `;
 
 const template = document.createElement("template");
 template.innerHTML = `
     <style>${style}</style>
-    <div class="container"">
-        <h3></h3>
+    <div class="container">
+        <div class="header">
+            <h3></h3>
+            <p class="time"></p>
+        </div>
         <p class="name"></p>
-        <p class="time"></p>
         <p class="description"></p>
         <div class='items'></div>
     </div>
@@ -64,10 +73,9 @@ class EducationEntry extends HTMLElement {
         const description = this.getAttribute("description");
         const name = this.getAttribute("name");
         const provider = this.getAttribute("provider");
-        const providerLogoUrl = this.getAttribute("provider-logo-url");
         const time = this.getAttribute("time");
 
-        this._shadow_root.querySelector('h3').innerHTML = provider;
+        this._shadow_root.querySelector('h3').innerText = provider;
         this._shadow_root.querySelector('.description').innerText = description;
         this._shadow_root.querySelector('.name').innerText = name;
         this._shadow_root.querySelector('.time').innerText = time;

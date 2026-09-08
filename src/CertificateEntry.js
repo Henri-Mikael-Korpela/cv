@@ -1,34 +1,51 @@
 const style = `
     .container {
-        grid-template-columns: 48px 1vw auto;
-        margin-bottom: 2vw;
+        align-items: baseline;
+        border-bottom: 1px solid var(--color-border);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 12px;
+        justify-content: space-between;
+        padding: 12px 0;
+    }
+
+    .container:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .container:first-child {
+        padding-top: 0;
     }
 
     h3 {
-        font-family: 'Noto Sans Georgian', sans-serif;
-        font-size: 18px;
-        font-weight: 500;
+        font-family: var(--font-family);
+        font-size: 15px;
+        font-weight: 700;
         margin: 0;
     }
 
     h3 a {
-        color: darkcyan;
+        color: var(--color-heading);
+        text-decoration: none;
     }
 
-    .time {
-        color: #323b4c;
-        font-family: 'Noto Sans Georgian', sans-serif;
-        font-size: 14px;
-        font-weight: 200;
+    h3 a:hover {
+        color: var(--color-accent-dark);
+        text-decoration: underline;
+    }
+
+    .meta {
+        color: var(--color-muted);
+        font-family: var(--font-family);
+        font-size: 13px;
+        font-weight: 400;
         margin: 0;
+        white-space: nowrap;
     }
 
     .company {
-        color: #323b4c;
-        font-family: 'Noto Sans Georgian', sans-serif;
-        font-size: 14px;
-        font-weight: 500;
-        margin: 0;
+        font-weight: 600;
     }
 `;
 
@@ -37,8 +54,7 @@ template.innerHTML = `
     <style>${style}</style>
     <div class="container">
         <h3></h3>
-        <p class="company"></p>
-        <p class="time"></p>
+        <p class="meta"><span class="company"></span> &middot; <span class="time"></span></p>
     </div>
 `;
 class CertificateEntry extends HTMLElement {
@@ -49,12 +65,11 @@ class CertificateEntry extends HTMLElement {
         this._shadow_root.appendChild(template.content.cloneNode(true));
 
         const company = this.getAttribute("company");
-        const companyLogoUrl = this.getAttribute("company-logo-url");
         const name = this.getAttribute("name");
         const time = this.getAttribute("time");
         const url = this.getAttribute("url");
 
-        this._shadow_root.querySelector('h3').innerHTML = `<a href="${url}" target="_balnk">${name}</a>`;
+        this._shadow_root.querySelector('h3').innerHTML = `<a href="${url}" target="_blank" rel="noopener">${name}</a>`;
         this._shadow_root.querySelector('.company').innerText = company;
         this._shadow_root.querySelector('.time').innerText = time;
     }

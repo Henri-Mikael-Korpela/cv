@@ -1,19 +1,39 @@
 const style = `
     .container {
-        margin-top: 2vh;
+        margin: 32px 0 16px 0;
+    }
+
+    .container:first-child {
+        margin-top: 0;
     }
 
     h2 {
-        font-family: 'Noto Sans Georgian', sans-serif;
-        font-size: 24px;
-        font-weight: 500;
-        margin: 0;
+        align-items: center;
+        color: var(--color-heading);
+        display: flex;
+        font-family: var(--font-family);
+        font-size: 15px;
+        font-weight: 700;
+        gap: 10px;
+        letter-spacing: 0.06em;
+        margin: 0 0 12px 0;
+        text-transform: uppercase;
     }
 
-    hr {
-        border: 1px solid #323b4c;
-        margin-bottom: 2vh;
-        opacity:0.25;
+    h2::before {
+        background: var(--color-accent);
+        border-radius: 2px;
+        content: "";
+        display: block;
+        flex: none;
+        height: 18px;
+        width: 4px;
+    }
+
+    @media print {
+        .container {
+            margin: 18px 0 10px 0;
+        }
     }
 `;
 
@@ -22,7 +42,6 @@ template.innerHTML = `
     <style>${style}</style>
     <div class="container">
         <h2></h2>
-        <hr/>
     </div>
 `;
 

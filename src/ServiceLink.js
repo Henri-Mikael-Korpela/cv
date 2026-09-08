@@ -1,36 +1,57 @@
 const style = `
     .service-link {
-        color: darkcyan;
-        font-family: 'Noto Sans Georgian', sans-serif;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 100%;
+        display: inline-flex;
+        height: 40px;
+        justify-content: center;
+        position: relative;
+        transition: background 0.2s, transform 0.2s;
+        width: 40px;
+    }
+
+    .service-link:hover {
+        background: rgba(255, 255, 255, 0.24);
+        transform: translateY(-2px);
+    }
+
+    .service-link > img {
+        aspect-ratio: 1 / 1;
+        border-radius: 100%;
+        width: 20px;
+    }
+
+    .service-link > img + span {
+        background: #1c2333;
+        border-radius: 6px;
+        color: white;
+        display: none;
+        font-family: var(--font-family);
         font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    .service-link:hover > img + span {
+        bottom: -30px;
         display: inline-block;
-        position:relative;
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%);
+        white-space: nowrap;
     }
 
-    .service-link>img {
-        aspect-ratio: 1/1;
-        width: 48px;
-    }
-
-    .service-link>img + span {
-        border:1px solid black;
-        display:none;
-    }
-    .service-link:hover>img + span {
-        bottom:-20px;
-        display:inline-block;
-        left:0;
-        padding-left:4px;
-        padding-right:4px;
-        position:absolute;
-        white-space:nowrap;
+    @media print {
+        .service-link {
+            display: none;
+        }
     }
 `;
 
 const template = document.createElement("template");
 template.innerHTML = `
     <style>${style}</style>
-    <a class="service-link" target="_blank">
+    <a class="service-link" target="_blank" rel="noopener">
         <img/>
         <span></span>
     </a>
