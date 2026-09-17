@@ -41,7 +41,6 @@ const style = `
         font-size: 13px;
         font-weight: 400;
         margin: 0;
-        white-space: nowrap;
     }
 
     .company {

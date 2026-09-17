@@ -52,7 +52,6 @@ const style = `
         font-weight: 400;
         margin: 0;
         text-align: right;
-        white-space: nowrap;
     }
 
     .entry-role {

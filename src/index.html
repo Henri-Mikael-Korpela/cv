@@ -43,6 +43,7 @@
             background: var(--color-bg);
             color: var(--color-text);
             font-family: var(--font-family);
+            overflow-x: hidden;
         }
 
         .page {
@@ -87,14 +88,19 @@
         .layout {
             display: grid;
             gap: 24px;
-            grid-template-columns: 300px 1fr;
+            grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
             margin-top: 24px;
         }
 
         @media (max-width: 780px) {
             .layout {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
             }
+        }
+
+        .sidebar,
+        .main {
+            min-width: 0;
         }
 
         .card {
@@ -102,6 +108,14 @@
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-card);
             padding: 28px 32px;
+        }
+
+        @media (max-width: 480px) {
+
+            .intro,
+            .card {
+                padding: 20px;
+            }
         }
 
         .sidebar .card + .card {
