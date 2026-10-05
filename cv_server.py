@@ -13,6 +13,7 @@ SRC_DIR = Path(__file__).resolve().parent / "src"
 INDEX_PATH = SRC_DIR / "index.html"
 DEFAULT_PORT = 8000
 VARIANTS = ("cv", "resume")
+TITLES = {"cv": "CV", "resume": "Resume"}
 
 
 def render_index_html(variant: str) -> str:
@@ -22,7 +23,8 @@ def render_index_html(variant: str) -> str:
     html = INDEX_PATH.read_text(encoding="utf-8")
     if variant == "cv":
         return html
-    return re.sub(r"<html\b", f'<html data-variant="{variant}"', html, count=1)
+    html = re.sub(r"<html\b", f'<html data-variant="{variant}"', html, count=1)
+    return html.replace("<title>CV - ", f"<title>{TITLES[variant]} - ", 1)
 
 
 class VariantRequestHandler(http.server.SimpleHTTPRequestHandler):
