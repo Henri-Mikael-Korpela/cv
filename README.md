@@ -8,7 +8,13 @@ Bring your own favicon!
 
 ## Running locally
 
-You can simply statically serve `/src` directory contents. For example, if you have Python 3, you can start a static HTTP server from project root directory as follows:
+Run the CV server from the project root directory (port defaults to 8000):
+
+```bash
+python run-cv-server.py [PORT]
+```
+
+Alternatively, you can simply statically serve `/src` directory contents. For example, if you have Python 3, you can start a static HTTP server from project root directory as follows:
 
 ```bash
 python3 -m http.server --directory ./src <PORT>
