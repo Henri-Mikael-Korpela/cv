@@ -2,6 +2,8 @@ from dataclasses import dataclass
 
 import pymupdf
 
+from cv_server import render_index_html
+
 @dataclass
 class TokenPosition:
     column: int
@@ -122,9 +124,8 @@ def tokenize(data: str) -> list[Token]:
 #         elif tag == "p" and self.parsing_description:
 #             self.parsing_description_content = True
 
-def main():
-    with open("src/index.html", "r") as f:
-        index_content = f.read()
+def main(variant: str = "cv"):
+    index_content = render_index_html(variant)
 
     # parser = MyHTMLParser()
     # parser.feed(index_content)
@@ -147,7 +148,7 @@ def main():
     # Insert title (larger font)
     page.insert_text(
         title_position,
-        "CV",
+        "Resume" if variant == "resume" else "CV",
         fontsize=20,
         fontname="helv",
         fill=(0, 0, 0)
@@ -163,7 +164,7 @@ def main():
     )
 
     # Save the PDF
-    doc.save("cv.pdf")
+    doc.save(f"{variant}.pdf")
     doc.close()
 
 if __name__ == "__main__":
