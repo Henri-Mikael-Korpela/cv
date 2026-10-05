@@ -12,8 +12,10 @@ from pathlib import Path
 SRC_DIR = Path(__file__).resolve().parent / "src"
 INDEX_PATH = SRC_DIR / "index.html"
 DEFAULT_PORT = 8000
-VARIANTS = ("cv", "resume")
-TITLES = {"cv": "CV", "resume": "Resume"}
+VARIANTS = {
+    "cv": "CV",
+    "resume": "Resume"
+}
 
 
 def render_index_html(variant: str) -> str:
@@ -24,7 +26,7 @@ def render_index_html(variant: str) -> str:
     if variant == "cv":
         return html
     html = re.sub(r"<html\b", f'<html data-variant="{variant}"', html, count=1)
-    return html.replace("<title>CV - ", f"<title>{TITLES[variant]} - ", 1)
+    return html.replace("<title>CV - ", f"<title>{VARIANTS[variant]} - ", 1)
 
 
 class VariantRequestHandler(http.server.SimpleHTTPRequestHandler):
