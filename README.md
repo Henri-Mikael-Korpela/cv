@@ -14,6 +14,12 @@ Run the CV server from the project root directory (port defaults to 8000):
 python run-cv-server.py [PORT]
 ```
 
+To serve the resume version (a condensed CV without skill tags, interests, growth areas, hobbies and projects) instead, run:
+
+```bash
+python run-resume-server.py [PORT]
+```
+
 Alternatively, you can simply statically serve `/src` directory contents. For example, if you have Python 3, you can start a static HTTP server from project root directory as follows:
 
 ```bash

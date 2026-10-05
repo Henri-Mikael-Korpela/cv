@@ -210,6 +210,18 @@
             }
         }
 
+        /* Resume variant: condensed version of the CV */
+        html[data-variant="resume"] {
+            --entry-items-display: none;
+        }
+
+        html[data-variant="resume"] #interests,
+        html[data-variant="resume"] #growth-areas,
+        html[data-variant="resume"] #hobbies-card,
+        html[data-variant="resume"] #projects-card {
+            display: none;
+        }
+
         @media print {
             @page {
                 margin: 14mm;

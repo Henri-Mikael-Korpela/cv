@@ -34,6 +34,7 @@ const style = `
     }
 
     .items {
+        display: var(--entry-items-display, block);
         margin-top: 8px;
     }
 `;
