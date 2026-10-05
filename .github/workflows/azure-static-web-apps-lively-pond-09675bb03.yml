@@ -19,7 +19,7 @@ jobs:
         with:
           submodules: true
           lfs: false
-      - name: Build site (cv.html and resume.html)
+      - name: Build site (index.html, cv.html and resume.html)
         run: python3 build-site.py
       - name: Build And Deploy
         id: builddeploy
