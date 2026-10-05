@@ -1,5 +1,11 @@
 const style = `
+    :host {
+        break-after: avoid;
+        display: block;
+    }
+
     .container {
+        break-after: avoid;
         margin: 32px 0 16px 0;
     }
 
@@ -8,6 +14,7 @@ const style = `
     }
 
     h2 {
+        break-after: avoid;
         align-items: center;
         color: var(--color-heading);
         display: flex;
